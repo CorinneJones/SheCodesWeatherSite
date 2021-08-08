@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="location">
+        <form class="search-bar">
+          <div class="row">
+            <div class="col-6">
+              <div class="lButton">
+                <button class="locationButton" id="locationButton">Find My Location</button>
+              </div>
+            </div>
+            <div class="col-4">
+              <form>
+                <input
+                  type="text"
+                  placeholder="Enter City Name"
+                  class="form-control"
+                  id="citySearch"
+                />
+              </form>
+            </div>
+            <div class="col-2">
+              <div class="search">
+                <button type="submit" class="sButton" id="searchButton">Search</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="otherCities">
+        <div class="row row-col-3">
+          <div class="col">
+            <button class="cityButton" id="btnCity1">PARIS</button>
+          </div>
+          <div class="col">
+            <button class="cityButton">LONDON</button>
+          </div>
+          <div class="col">
+            <button class="cityButton">LOS ANGELES</button>
+          </div>
+        </div>
+      </div>
+      <div class="currentCity">
+        <div class="currentTime">
+          <div class="row row-col-3">
+            <div class="col">
+              <div class="title">TIME:</div>
+              <div class="data" id="theTime">18:22</div>
+            </div>
+            <div class="col">
+                <div class="title">SEASON:</div>
+              <div class="data">WINTER</div>
+            </div>
+            <div class="col">
+                <div class="title">DISPLAY IN:</div>
+              <div class = "data"><a href="#" class="selectedTempUnit" id= "tempC" >°C</a> | <a href="#" id= "tempF" >°F</a></div>
+          </div>
+        </div>
+        <div class="currentConditions">
+          <div class="row row-col-3">
+            <div class="col"><h4>CURRENT CITY</h4></div>
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+          <div class="row row-col-3">
+            <div class="col">
+              <div class="cityName" id="searchedCity">PERTH</div>
+            </div>
+            <div class="col">
+              <div class="cityTemp"id="currentCityTemp">10°C</div>
+            </div>
+            <div class="col"><img src="images/sun+heavyrain.png" alt="cloudy" width="90px"/></div>
+          </div>
+          <div class="row row">
+              <div class="col-2"></div>
+            <div class="col-8">
+              <div class="currentDayDate" id="todaysDate">WEDNESDAY 20 JUNE 2021</div>
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+        <div class="currentInfo">
+          <div class="row row-col-4">
+            <div class="col">
+              <div class="title">Feels like:</div>
+              <div class="data">-1°C</div>
+            </div>
+            <div class="col">
+              <div class="title">Wind:</div>
+              <div class="data">23km/h</div>
+            </div>
+            <div class="col">
+              <div class="title">Humidity:</div>
+              <div class="data">5%</div>
+            </div>
+            <div class="col">
+              <div class="title">Precipitation:</div>
+              <div class="data">85%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="forecast">
+        <h5>In the next few days, you can expect...</h5>
+        <div class="row row-col-5">
+          <div class="col">
+            <div class="dayName">Thursday</div>
+            <div class="dayImage"><img src="images/sun+lightrain.png" alt="light rain" width="75px" /></div>
+            <div class="dayTemp">1° | <strong> 10°</strong> </div>
+          </div>
+          <div class="col">
+            <div class="dayName">Friday</div>
+            <div class="dayImage"><img src="images/sun+lightrain.png" alt="light rain" width="75px" /></div>
+            <div class="dayTemp">3° | <strong>15°</strong> </div>
+          </div>
+          <div class="col">
+            <div class="dayName">Saturday</div>
+            <div class="dayImage"><img src="images/sun+clouds.png" alt="light rain" width="75px" /></div>
+            <div class="dayTemp">6° | <strong>17°</strong> </div>
+          </div>
+          <div class="col">
+            <div class="dayName">Sunday</div>
+            <div class="dayImage"><img src="images/sun+heavyrain.png" alt="light rain" width="75px" /></div>
+            <div class="dayTemp">4° | <strong>11°</strong> </div>
+          </div>
+          <div class="col">
+            <div class="dayName">Monday</div>
+            <div class="dayImage"><img src="images/sun+heavyrain.png" alt="light rain" width="75px" /></div>
+            <div class="dayTemp">4° | <strong>10°</strong> </div>
+          </div>
+        </div>
+      <div class="cityInfo"> <button class="searchCityButton">Search more about this city in Wikipedia</button></div>
+    </div>
+  </body>
+  <script src="src/index.js"></script>
+</html>

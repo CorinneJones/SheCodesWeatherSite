@@ -1,0 +1,166 @@
+.container {
+  margin: 5% auto;
+  border: solid 4px teal;
+  padding: 20px 40px 20px 40px;
+  max-width: 900px;
+  background-color: rgba(192, 228, 228, 0.096);
+  border-radius: 10px;
+}
+.location {
+  text-align: right;
+}
+
+.lButton {
+  text-align: center;
+}
+.locationButton {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 4px teal;
+  color: teal;
+  min-width: 200px;
+  text-align: center;
+  font-weight: bold;
+}
+.locationButton:hover,
+.sButton:hover {
+  color: white;
+  background-color: teal;
+  transition: ease-in-out all 200ms;
+  cursor: pointer;
+}
+
+.search {
+  text-align: left;
+}
+.sButton {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 4px teal;
+  color: teal;
+  min-width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+.otherCities {
+  margin: 40px 0px 40px 0px;
+  text-align: center;
+}
+
+.cityButton {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 4px rgb(185, 44, 155);
+  color: rgb(185, 44, 155);
+  min-width: 200px;
+  text-align: center;
+  font-weight: bold;
+}
+.cityButton:hover,
+.searchCityButton:hover {
+  color: white;
+  background-color: rgb(185, 44, 155);
+  transition: ease-in-out all 200ms;
+  cursor: pointer;
+}
+.currentCity {
+  margin: 5px;
+  padding: 10px;
+  border: solid 5px rgba(0, 128, 128, 0.432);
+  background-color: rgba(192, 228, 228, 0.226);
+  border-radius: 10px;
+}
+
+.title,
+.data,
+a {
+  display: inline;
+}
+.title {
+  font-weight: bold;
+  color: teal;
+}
+
+.data,
+a {
+  color: grey;
+}
+
+.currentTime,
+.currentConditions,
+.cityName {
+  color: tomato;
+}
+.currentTime {
+  text-align: center;
+}
+.currentConditions {
+  margin: 10px 0px;
+}
+.cityName {
+  font-size: 60px;
+  font-weight: bold;
+}
+.cityTemp {
+  font-size: 60px;
+  font-weight: bold;
+}
+.currentDayDate {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  color: tomato;
+}
+.currentInfo {
+  font-family: monospace;
+}
+.forecast {
+  text-align: center;
+  margin-top: 50px;
+}
+.dayName {
+  font-weight: bold;
+  color: dodgerblue;
+}
+
+.cityInfo {
+  margin-top: 50px;
+  text-align: center;
+}
+.searchCityButton {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 4px rgb(185, 44, 155);
+  color: rgb(185, 44, 155);
+  min-width: 200px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.col {
+  margin: 5px;
+}
+body {
+  font-family: monospace;
+}
+h4 {
+  margin-bottom: -20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(255, 99, 71, 0.5);
+}
+h5 {
+  text-align: center;
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  font-weight: bold;
+  color: dodgerblue;
+}
+.selectedTempUnit {
+  font-weight: bold;
+  color: tomato;
+}
