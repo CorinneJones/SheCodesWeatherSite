@@ -1,9 +1,15 @@
+html {
+  background: url(/images/tom-barrett-hgGplX3PFBg-unsplash.jpg) no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
 .container {
-  margin: 5% auto;
+  margin: 5% auto 20px auto;
   border: solid 4px teal;
   padding: 20px 40px 20px 40px;
   max-width: 900px;
-  background-color: rgba(192, 228, 228, 0.096);
+  background-color: rgb(234, 240, 240);
   border-radius: 10px;
 }
 .location {
@@ -154,6 +160,7 @@ a {
 }
 body {
   font-family: monospace;
+  background: none;
 }
 h4 {
   margin-bottom: -20px;
@@ -179,4 +186,10 @@ a:hover {
 footer {
   text-align: center;
   margin-top: -4%;
+  color: rgb(185, 44, 155);
+  background-color: rgba(0, 0, 0, 0.75);
+  max-width: 900px;
+  margin: 0px auto;
+  border-radius: 10px;
+  border: solid 1px rgba(0, 128, 128, 0.514);
 }
