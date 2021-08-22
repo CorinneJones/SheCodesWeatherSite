@@ -226,7 +226,7 @@ function addUnits(){
   if (checkUnitsSelected()==="metric")
   {
     document.querySelector("#feels_Like").innerHTML = document.querySelector("#feels_Like").innerHTML+"°C";
-    document.querySelector("#wind_Speed").innerHTML = document.querySelector("#wind_Speed").innerHTML + "kmh";
+    document.querySelector("#wind_Speed").innerHTML = document.querySelector("#wind_Speed").innerHTML + "kph";
     document.querySelector("#rain_Amount").innerHTML = document.querySelector("#rain_Amount").innerHTML + "mm";
   }
   //If °F is selected
