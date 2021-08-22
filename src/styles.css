@@ -118,7 +118,7 @@ a {
 }
 .currentDayDate {
   font-size: 22px;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   color: tomato;
 }
@@ -158,7 +158,7 @@ h4 {
   margin-bottom: -20px;
   font-size: 18px;
   font-weight: bold;
-  color: rgba(255, 99, 71, 0.5);
+  color: rgba(0, 128, 128, 0.514);
 }
 h5 {
   text-align: center;

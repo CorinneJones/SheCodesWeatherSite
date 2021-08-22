@@ -263,11 +263,13 @@ function findLocation(){
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-
-
 let searchCity = document.querySelector("#searchButton");
 searchCity.addEventListener("click", searchYourCity);
 
 let searchLocation = document.querySelector("#locationButton");
 searchLocation.addEventListener("click", findLocation);
 
+
+
+//Default city set to Perth, AU with metric units
+checkWeatherByCity("Perth","metric");
