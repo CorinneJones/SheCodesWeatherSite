@@ -79,11 +79,22 @@ a {
 .title {
   font-weight: bold;
   color: teal;
+  text-align: center;
 }
 
 .data,
 a {
   color: grey;
+}
+
+.data {
+  text-align: center;
+}
+
+.icon {
+  background-color: rgba(0, 83, 83, 0.247);
+  border-radius: 10px;
+  border: solid 5px rgba(0, 128, 128, 0.432);
 }
 
 .currentTime,
@@ -107,7 +118,7 @@ a {
 }
 .currentDayDate {
   font-size: 22px;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   color: tomato;
 }

@@ -91,7 +91,7 @@ function checkUnitsSelected(){
 }
 
 
-//temperature conversion
+//Temperature conversion
 function convertFtoC(tempF){
   return Math.floor(((tempF -32)*5/9)*100)/100;
 }
@@ -100,18 +100,42 @@ function convertCtoF(tempC){
   return Math.floor(((tempC*9/5) + 32)*100)/100;
 }
 
+//Unit conversions
+function convertUnits(){
+  let windSpeed = document.querySelector("#wind_Speed");
+  let feels_like = document.querySelector("#feels_Like");
+  let rainAmount = document.querySelector("#rain_Amount");
+
+  if (checkUnitsSelected()==="metric")
+  {
+    windSpeed.innerHTML = Math.floor(windSpeed.innerHTML.substring(0,windSpeed.innerHTML.length-3)*0.621371*100)/100;
+    feels_like.innerHTML = convertFtoC(feels_like.innerHTML.substring(0,feels_like.innerHTML.length-2));
+    rainAmount.innerHTML = Math.floor(rainAmount.innerHTML.substring(0,rainAmount.innerHTML.length-1)*25.4*100)/100;
+  }
+  //else °F is selected
+  else
+  {
+    windSpeed.innerHTML = Math.floor(windSpeed.innerHTML.substring(0,windSpeed.innerHTML.length-4)*1.609343502101025*100)/100;
+    feels_like.innerHTML = convertCtoF(feels_like.innerHTML.substring(0,feels_like.innerHTML.length-2));
+    rainAmount.innerHTML = Math.floor(rainAmount.innerHTML.substring(0,rainAmount.innerHTML.length-2)/25.4*100)/100;
+  }
+
+  addUnits();
+}
+
+
 //Update temperature display
 function displayTemp(currentTemp){
-  let temp = document.querySelector("#currentCityTemp");
+  let current_temp = document.querySelector("#currentCityTemp");
   //If °C is selected
   if (checkUnitsSelected()==="metric")
   {
-    temp.innerHTML = currentTemp+"°C";
+    current_temp.innerHTML = currentTemp+"°C";
   }
-  //If °F is selected
+  //else °F is selected
   else
   {
-    temp.innerHTML = currentTemp+"°F";
+    current_temp.innerHTML = currentTemp+"°F";
   }
 }
 
@@ -120,19 +144,21 @@ function changeUnit(){
   let unitF = document.querySelector("#tempF");
   let temp = document.querySelector("#currentCityTemp");
 
-  //If °C is selected
+  //If °F is selected
   if (unitC.classList.contains("selectedTempUnit")==false)
   {
     unitF.classList.remove("selectedTempUnit");
     unitC.classList.add("selectedTempUnit");
     temp.innerHTML = convertFtoC(temp.innerHTML.substring(0,temp.innerHTML.length-2))+"°C";
+    convertUnits();
   }
-  //If °F is selected
+  //else °C is selected
   else
   {
     unitC.classList.remove("selectedTempUnit");
     unitF.classList.add("selectedTempUnit");
     temp.innerHTML = convertCtoF(temp.innerHTML.substring(0,temp.innerHTML.length-2))+"°F";
+    convertUnits();
   }
 }
 
@@ -156,17 +182,62 @@ function checkWeatherByCity(city,units){
   let weatherCheckUrl = apiCallWeather +"q="+ city + "&appid=" + apiKeyWeather + "&units=" + units;
   //Get weather information from URL and then display weather
   axios.get(weatherCheckUrl).then(displayWeather);
-}
+} 
 
 
 //Display Temperature of URL
 function displayWeather(response) {
   lastSearchedCityWeather = response;
   displayTemp(lastSearchedCityWeather.data.main.temp);
+
+  // Update city name
   let cityName = document.querySelector("#searchedCity");
   cityName.innerHTML = lastSearchedCityWeather.data.name.toUpperCase();
+
+  // Update wind speed
+  document.querySelector("#wind_Speed").innerHTML = lastSearchedCityWeather.data.wind.speed;
+
+  // Update Rain
+  if (lastSearchedCityWeather.data.rain === undefined) {
+    document.querySelector("#rain_Amount").innerHTML = 0;
+  } else {
+    document.querySelector("#rain_Amount").innerHTML =
+      lastSearchedCityWeather.data.rain["1h"];
+  }
+  // Update weather description
+  document.querySelector("#weather_Description").innerHTML = lastSearchedCityWeather.data.weather[0].description.toUpperCase();
+
+  // Update weather icon
+  let currentWeatherIcon = document.querySelector("#today_Icon");
+  currentWeatherIcon.setAttribute("src",`https://openweathermap.org/img/wn/${lastSearchedCityWeather.data.weather[0].icon}@2x.png`);
+  currentWeatherIcon.setAttribute("alt",lastSearchedCityWeather.data.weather[0].description);
+
+  // Update feels like
+  document.querySelector("#feels_Like").innerHTML =lastSearchedCityWeather.data.main.feels_like;
+
+  // Update humidity
+  document.querySelector("#humidity").innerHTML =lastSearchedCityWeather.data.main.humidity + "%";
+
+  addUnits();
+  
+  console.log(response);
 }
 
+function addUnits(){
+  if (checkUnitsSelected()==="metric")
+  {
+    document.querySelector("#feels_Like").innerHTML = document.querySelector("#feels_Like").innerHTML+"°C";
+    document.querySelector("#wind_Speed").innerHTML = document.querySelector("#wind_Speed").innerHTML + "km/h";
+    document.querySelector("#rain_Amount").innerHTML = document.querySelector("#rain_Amount").innerHTML + "mm";
+  }
+  //If °F is selected
+  else
+  {
+    document.querySelector("#feels_Like").innerHTML = document.querySelector("#feels_Like").innerHTML+"°F";
+    document.querySelector("#wind_Speed").innerHTML = document.querySelector("#wind_Speed").innerHTML + "mph";
+    document.querySelector("#rain_Amount").innerHTML = document.querySelector("#rain_Amount").innerHTML + '"';
+  }
+}
 
 //geo location
 function showPosition(position) {

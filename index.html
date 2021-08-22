@@ -96,36 +96,56 @@
                 <div class="cityTemp" id="currentCityTemp">10°C</div>
               </div>
               <div class="col">
-                <img src="images/sun+heavyrain.png" alt="cloudy" width="90px" />
+                <img
+                  src="images/sun+heavyrain.png"
+                  alt="cloudy"
+                  width="90px"
+                  id="today_Icon"
+                  class="icon"
+                />
               </div>
             </div>
-            <div class="row row">
-              <div class="col-2"></div>
+            <div class="row row-col">
               <div class="col-8">
                 <div class="currentDayDate" id="todaysDate">
                   WEDNESDAY 20 JUNE 2021
                 </div>
               </div>
-              <div class="col-2"></div>
+
+              <div class="col">
+                <div class="weatherDescription" id="weather_Description">
+                  cloudy
+                </div>
+              </div>
             </div>
           </div>
           <div class="currentInfo">
             <div class="row row-col-4">
               <div class="col">
                 <div class="title">Feels like:</div>
-                <div class="data">-1°C</div>
               </div>
               <div class="col">
                 <div class="title">Wind:</div>
-                <div class="data">23km/h</div>
               </div>
               <div class="col">
                 <div class="title">Humidity:</div>
-                <div class="data">5%</div>
               </div>
               <div class="col">
                 <div class="title">Precipitation:</div>
-                <div class="data">85%</div>
+              </div>
+              <div class="row row-col-4">
+                <div class="col">
+                  <div class="data" id="feels_Like">-1°C</div>
+                </div>
+                <div class="col">
+                  <div class="data" id="wind_Speed">23km/h</div>
+                </div>
+                <div class="col">
+                  <div class="data" id="humidity">5%</div>
+                </div>
+                <div class="col">
+                  <div class="data" id="rain_Amount">6mm</div>
+                </div>
               </div>
             </div>
           </div>
