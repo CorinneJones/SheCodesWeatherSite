@@ -115,7 +115,7 @@ function convertUnits(){
   //else °F is selected
   else
   {
-    windSpeed.innerHTML = Math.floor(windSpeed.innerHTML.substring(0,windSpeed.innerHTML.length-4)*1.609343502101025*100)/100;
+    windSpeed.innerHTML = Math.floor(windSpeed.innerHTML.substring(0,windSpeed.innerHTML.length-3)*1.609343502101025*100)/100;
     feels_like.innerHTML = convertCtoF(feels_like.innerHTML.substring(0,feels_like.innerHTML.length-2));
     rainAmount.innerHTML = Math.floor(rainAmount.innerHTML.substring(0,rainAmount.innerHTML.length-2)/25.4*100)/100;
   }
@@ -226,7 +226,7 @@ function addUnits(){
   if (checkUnitsSelected()==="metric")
   {
     document.querySelector("#feels_Like").innerHTML = document.querySelector("#feels_Like").innerHTML+"°C";
-    document.querySelector("#wind_Speed").innerHTML = document.querySelector("#wind_Speed").innerHTML + "km/h";
+    document.querySelector("#wind_Speed").innerHTML = document.querySelector("#wind_Speed").innerHTML + "kmh";
     document.querySelector("#rain_Amount").innerHTML = document.querySelector("#rain_Amount").innerHTML + "mm";
   }
   //If °F is selected
