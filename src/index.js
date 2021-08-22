@@ -159,7 +159,7 @@ function changeUnit(){
     unitF.classList.add("selectedTempUnit");
     temp.innerHTML = convertCtoF(temp.innerHTML.substring(0,temp.innerHTML.length-2))+"°F";
     convertUnits();
-  }
+  } 
 }
 
 //Capture user temperature unit selection
@@ -172,7 +172,6 @@ tempF.addEventListener("click", changeUnit);
 //weather search city
 let apiKeyWeather = "bd7e1a6abf699f2eca2f3fae90b453ff";
 let apiCallWeather = "https://api.openweathermap.org/data/2.5/weather?";
-
 let lastSearchedCityWeather = {};
 
 
