@@ -17,7 +17,6 @@
   <body>
     <div class="container">
       <div class="location">
-        <form class="search-bar">
           <div class="row">
             <div class="col-6">
               <div class="lButton">
@@ -31,24 +30,23 @@
               </div>
             </div>
             <div class="col-4">
-              <form>
+              <form id="search-form">
                 <input
-                  type="text"
+                  type="search"
                   placeholder="Enter City Name"
                   class="form-control"
                   id="citySearch"
                 />
+              </div>
+              <div class="col-2">
+                <div class="search">
+                  <button type="button" class="sButton" id="searchButton">
+                    Search
+                  </button>
+                </div>
               </form>
             </div>
-            <div class="col-2">
-              <div class="search">
-                <button type="button" class="sButton" id="searchButton">
-                  Search
-                </button>
-              </div>
-            </div>
           </div>
-        </form>
       </div>
       <div class="otherCities">
         <div class="row row-col-3">

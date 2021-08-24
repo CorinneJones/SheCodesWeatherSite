@@ -268,7 +268,8 @@ searchCity.addEventListener("click", searchYourCity);
 let searchLocation = document.querySelector("#locationButton");
 searchLocation.addEventListener("click", findLocation);
 
-
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", searchYourCity);
 
 //Default city set to Perth, AU with metric units
 checkWeatherByCity("Perth","metric");
