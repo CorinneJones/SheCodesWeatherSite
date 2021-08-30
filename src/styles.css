@@ -131,28 +131,20 @@ a {
 .currentInfo {
   font-family: monospace;
 }
-.forecast {
+.weather-forecast {
   text-align: center;
   margin-top: 50px;
 }
-.dayName {
+.weather-forecast-dayName {
   font-weight: bold;
   color: dodgerblue;
 }
-
-.cityInfo {
-  margin-top: 50px;
-  text-align: center;
+.weather-forecast-temperature-max {
+  font-size: 16px;
 }
-
-.searchCityButton {
-  background-color: white;
-  border-radius: 5px;
-  border: solid 4px rgb(185, 44, 155);
-  color: rgb(185, 44, 155);
-  min-width: 200px;
-  text-align: center;
-  font-weight: bold;
+.weather-forecast-temperature-min {
+  font-size: 16px;
+  opacity: 0.5;
 }
 
 .col {

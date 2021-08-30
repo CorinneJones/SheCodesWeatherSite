@@ -1,3 +1,9 @@
+//weather search city
+let apiKeyWeather = "bd7e1a6abf699f2eca2f3fae90b453ff";
+let apiCallWeather = "https://api.openweathermap.org/data/2.5/weather?";
+let lastSearchedCityWeather = {};
+
+
 
 //Format the date into text
 function fDate(currentDate) {
@@ -91,6 +97,8 @@ function checkUnitsSelected(){
 }
 
 
+
+
 //Temperature conversion
 function convertFtoC(tempF){
   return Math.floor(((tempF -32)*5/9)*100)/100;
@@ -124,6 +132,7 @@ function convertUnits(){
 }
 
 
+
 //Update temperature display
 function displayTemp(currentTemp){
   let current_temp = document.querySelector("#currentCityTemp");
@@ -138,6 +147,7 @@ function displayTemp(currentTemp){
     current_temp.innerHTML = currentTemp+"°F";
   }
 }
+
 
 function changeUnit(){
   let unitC = document.querySelector("#tempC");
@@ -169,10 +179,7 @@ tempC.addEventListener("click", changeUnit);
 let tempF = document.querySelector("#tempF");
 tempF.addEventListener("click", changeUnit);
 
-//weather search city
-let apiKeyWeather = "bd7e1a6abf699f2eca2f3fae90b453ff";
-let apiCallWeather = "https://api.openweathermap.org/data/2.5/weather?";
-let lastSearchedCityWeather = {};
+
 
 
 //create URL
@@ -220,6 +227,58 @@ function displayWeather(response) {
   addUnits();
   
   console.log(response);
+
+
+  //Forecast
+  getForecast(response.data.coord);
+
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKeyWeather}&units=${checkUnitsSelected()}`;
+  axios.get(apiUrl).then(displayForecast); 
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+
+  return days [day];
+
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function(forecastDay, index) {
+    if (index <6) {
+    forecastHTML = 
+    forecastHTML + 
+      `
+        <div class="col-2">
+          <div class="weather-forecast-dayName">${formatDay(forecastDay.dt)}</div>
+          <img
+            src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+            alt=""
+            width="75"
+          />
+          <div class="weather-forecast-tempertures">
+            <span class="weather-forecast-temperature-max"> ${Math.round(forecastDay.temp.max)}°
+            </span>
+            <span class="weather-forecast-temperature-min"> ${Math.round(forecastDay.temp.min)}°
+            </span>
+          </div>
+        </div>
+      `;
+    }
+    })
+    forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function addUnits(){
@@ -273,3 +332,4 @@ form.addEventListener("submit", searchYourCity);
 
 //Default city set to Perth, AU with metric units
 checkWeatherByCity("Perth","metric");
+
