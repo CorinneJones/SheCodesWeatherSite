@@ -6,10 +6,13 @@ html {
 
 .container {
   margin: 5% auto 20px auto;
-  border: solid 4px teal;
   padding: 20px 40px 20px 40px;
   max-width: 900px;
-  background-color: rgb(234, 240, 240);
+  background-image: linear-gradient(
+    to right,
+    rgba(219, 107, 59, 0.25),
+    rgba(27, 132, 167, 0.6)
+  );
   border-radius: 10px;
 }
 .location {
@@ -48,32 +51,11 @@ html {
   text-align: center;
   font-weight: bold;
 }
-.otherCities {
-  margin: 40px 0px 40px 0px;
-  text-align: center;
-}
 
-.cityButton {
-  background-color: white;
-  border-radius: 5px;
-  border: solid 4px rgb(185, 44, 155);
-  color: rgb(185, 44, 155);
-  min-width: 200px;
-  text-align: center;
-  font-weight: bold;
-}
-.cityButton:hover,
-.searchCityButton:hover {
-  color: white;
-  background-color: rgb(185, 44, 155);
-  transition: ease-in-out all 200ms;
-  cursor: pointer;
-}
 .currentCity {
-  margin: 5px;
+  margin: 40px 0;
   padding: 10px;
-  border: solid 5px rgba(0, 128, 128, 0.432);
-  background-color: rgba(192, 228, 228, 0.226);
+  background-color: rgba(192, 228, 228, 0.6);
   border-radius: 10px;
 }
 
@@ -84,29 +66,31 @@ a {
 }
 .title {
   font-weight: bold;
-  color: teal;
+  color: rgb(20, 107, 107);
   text-align: center;
 }
 
-.data,
-a {
-  color: grey;
-}
-
 .data {
+  color: rgb(34, 34, 34);
   text-align: center;
 }
 
 .icon {
   background-color: rgba(0, 83, 83, 0.247);
   border-radius: 10px;
-  border: solid 5px rgba(0, 128, 128, 0.432);
+  border: solid 2px rgba(0, 128, 128, 0.432);
+}
+
+.forecastIcon {
+  background-color: rgba(192, 228, 228, 0.6);
+  border-radius: 10px;
+  border: solid 2px rgba(185, 44, 154, 0.5);
 }
 
 .currentTime,
 .currentConditions,
 .cityName {
-  color: tomato;
+  color: rgb(77, 77, 77);
 }
 .currentTime {
   text-align: center;
@@ -115,36 +99,47 @@ a {
   margin: 10px 0px;
 }
 .cityName {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
+  padding-top: 5%;
 }
 .cityTemp {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
+  padding-top: 5%;
 }
 .currentDayDate {
-  font-size: 22px;
+  font-size: 36px;
   text-align: center;
   font-weight: bold;
-  color: tomato;
+  color: rgba(185, 44, 154, 0.808);
 }
 .currentInfo {
   font-family: monospace;
 }
+.forecast-title {
+  text-align: center;
+  margin-top: -10px;
+  padding: 10px;
+}
 .weather-forecast {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 10px;
+  background-color: rgba(192, 228, 228, 0.6);
+  border-radius: 10px;
 }
 .weather-forecast-dayName {
   font-weight: bold;
-  color: dodgerblue;
+  color: rgb(20, 107, 107);
 }
 .weather-forecast-temperature-max {
+  font-weight: bold;
   font-size: 16px;
 }
 .weather-forecast-temperature-min {
-  font-size: 16px;
-  opacity: 0.5;
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: bold;
 }
 
 .col {
@@ -156,16 +151,19 @@ body {
 }
 h4 {
   margin-bottom: -20px;
-  font-size: 18px;
+  font-size: 21px;
   font-weight: bold;
-  color: rgba(0, 128, 128, 0.514);
+  color: rgb(20, 107, 107);
 }
 h5 {
   text-align: center;
   font-weight: bold;
+  color: rgb(77, 77, 77);
 }
 a {
   text-decoration: none;
+  color: rgb(112, 112, 112);
+  font-weight: bold;
 }
 a:hover {
   font-weight: bold;
@@ -173,7 +171,7 @@ a:hover {
 }
 .selectedTempUnit {
   font-weight: bold;
-  color: tomato;
+  color: rgb(185, 44, 155);
 }
 footer {
   text-align: center;
@@ -184,4 +182,8 @@ footer {
   margin: 0px auto;
   border-radius: 10px;
   border: solid 1px rgba(0, 128, 128, 0.514);
+}
+
+img {
+  opacity: 0.8;
 }

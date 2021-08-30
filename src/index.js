@@ -170,6 +170,7 @@ function changeUnit(){
     temp.innerHTML = convertCtoF(temp.innerHTML.substring(0,temp.innerHTML.length-2))+"°F";
     convertUnits();
   } 
+  getForecast();
 }
 
 //Capture user temperature unit selection
@@ -226,16 +227,13 @@ function displayWeather(response) {
 
   addUnits();
   
-  console.log(response);
-
-
   //Forecast
-  getForecast(response.data.coord);
+  getForecast();
 
 }
 
-function getForecast(coordinates) {
-  console.log(coordinates);
+function getForecast() {
+  let coordinates = lastSearchedCityWeather.data.coord;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKeyWeather}&units=${checkUnitsSelected()}`;
   axios.get(apiUrl).then(displayForecast); 
 }
@@ -266,6 +264,7 @@ function displayForecast(response) {
             src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
             alt=""
             width="75"
+            class="forecastIcon"
           />
           <div class="weather-forecast-tempertures">
             <span class="weather-forecast-temperature-max"> ${Math.round(forecastDay.temp.max)}°
@@ -278,7 +277,10 @@ function displayForecast(response) {
     }
     })
     forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
+    forecastElement.innerHTML = `<div class="forecast-title">
+                                  <h5>In the next few days, you can expect...</h5>
+                                  </div>`
+                                + forecastHTML;
 }
 
 function addUnits(){
